@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_REDIRECT_URL ='/auth/login'
+LOGIN_URL ='/auth/login'
+
 
 # Application definition
 
@@ -39,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authentication_authorization'
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

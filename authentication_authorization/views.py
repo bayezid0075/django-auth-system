@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.contrib.auth import authenticate, login as django_login
+from django.contrib.auth import authenticate, login as django_login, logout as django_logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 # Create your views here.
 def home(request): 
@@ -30,3 +31,8 @@ def login(request):
         form = AuthenticationForm()
         print("user came to form")
     return render(request, 'login.html', {'form': form})
+
+@login_required #login lagbei 😊
+def logout(request): 
+    django_logout(request)
+    return HttpResponse("user logged out !!!")
